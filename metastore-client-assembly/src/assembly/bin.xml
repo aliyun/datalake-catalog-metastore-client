@@ -1,0 +1,73 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://maven.apache.org/ASSEMBLY/2.1.0"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
+    <id>bin</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>${project.parent.basedir}</directory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <moduleSets>
+        <moduleSet>
+            <!-- Enable access to all projects in the current multimodule build! -->
+            <useAllReactorProjects>true</useAllReactorProjects>
+
+            <!-- Now, select which projects to include in this module-set. -->
+            <includes>
+                <include>com.aliyun.datalake:metastore-client-hive-common</include>
+                <include>com.aliyun.datalake:metastore-client-common</include>
+                <include>com.aliyun.datalake:metastore-client-hive2</include>
+                <include>com.aliyun.datalake:shims-package</include>
+            </includes>
+            <binaries>
+                <outputDirectory>hive2</outputDirectory>
+                <unpack>false</unpack>
+                <!-- do not include dependencies since sdk has shaded them -->
+                <includeDependencies>false</includeDependencies>
+                <!-- include sdk explicitly -->
+                <dependencySets>
+                    <dependencySet>
+                        <includes>
+                            <include>com.aliyun:datalake20200710:jar:shaded</include>
+                        </includes>
+                    </dependencySet>
+                </dependencySets>
+            </binaries>
+        </moduleSet>
+        <moduleSet>
+            <!-- Enable access to all projects in the current multimodule build! -->
+            <useAllReactorProjects>true</useAllReactorProjects>
+            <!-- Now, select which projects to include in this module-set. -->
+            <includes>
+                <include>com.aliyun.datalake:metastore-client-hive-common</include>
+                <include>com.aliyun.datalake:metastore-client-common</include>
+                <include>com.aliyun.datalake:metastore-client-hive3</include>
+                <include>com.aliyun.datalake:shims-package</include>
+            </includes>
+            <binaries>
+                <outputDirectory>hive3</outputDirectory>
+                <unpack>false</unpack>
+                <!-- do not include dependencies since sdk has shaded them -->
+                <includeDependencies>false</includeDependencies>
+                <!-- include sdk explicitly -->
+                <dependencySets>
+                    <dependencySet>
+                        <includes>
+                            <include>com.aliyun:datalake20200710:jar:shaded</include>
+                        </includes>
+                    </dependencySet>
+                </dependencySets>
+            </binaries>
+        </moduleSet>
+    </moduleSets>
+</assembly>
