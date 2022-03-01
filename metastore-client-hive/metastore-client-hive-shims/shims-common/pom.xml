@@ -6,7 +6,7 @@
     <parent>
         <artifactId>metastore-client-hive-shims</artifactId>
         <groupId>com.aliyun.datalake</groupId>
-        <version>0.2.14-SNAPSHOT</version>
+        <version>0.2.14</version>
     </parent>
     <artifactId>shims-common</artifactId>
 

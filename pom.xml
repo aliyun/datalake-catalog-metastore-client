@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.aliyun.datalake</groupId>
     <artifactId>metastore-client</artifactId>
-    <version>0.2.14-SNAPSHOT</version>
+    <version>0.2.14</version>
     <packaging>pom</packaging>
     <name>metastore-client</name>
     <description>Alibaba Cloud DataLake Catalog Client for Java</description>
